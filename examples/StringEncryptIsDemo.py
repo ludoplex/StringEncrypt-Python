@@ -29,25 +29,7 @@ from stringencrypt import StringEncrypt
 #
 myStringEncrypt = StringEncrypt("ABCD-ABCD-ABCD-ABCD")
 
-#
-# login to the service
-#
-result = myStringEncrypt.is_demo()
-
-#
-# result[] array holds the information about the license
-#
-# result["demo"] (boolean) - demo mode flag
-# result["label_limit"] (int) - label limit length
-# result["string_limit"] (int) - string limit length
-# result["bytes_limit"] (int) - bytes/file limit length
-# result["credits_left"] (int) - number of credits left
-# result["credits_total"] (int) - initial number of credits
-# result["cmd_min"] (int) - minimum number of encryption commands
-# result["cmd_max"] (int) - maximum number of encryption commands
-#
-if result:
-
+if result := myStringEncrypt.is_demo():
 	print(f'Demo version status - {"True" if result["demo"] else "False"}')
 
 	print(f'Label length limit - {result["label_limit"]}')
