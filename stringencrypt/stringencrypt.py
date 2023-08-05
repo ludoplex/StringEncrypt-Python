@@ -274,13 +274,11 @@ class StringEncrypt(object):
         :rtype: bool,dict
         """
 
-        source_file = open(file_path, 'rb')
-        bytes = source_file.read()
-        source_file.close()
-    
+        with open(file_path, 'rb') as source_file:
+            bytes = source_file.read()
         if not bytes:
             return False
-    
+
         # additional parameters
         params_array = {"command": "encrypt", "bytes": bytes, "label": label}
 
